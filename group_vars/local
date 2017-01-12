@@ -2,7 +2,7 @@
 
 #nginx
 nginx_worker_processes: 4
-domain: pasajeschile.app
+domain: project.app
 username: ubuntu
 
 #php
