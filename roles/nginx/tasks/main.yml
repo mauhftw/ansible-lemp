@@ -1,0 +1,50 @@
+---
+
+- name: apt-get update and install nginx
+  apt: name=nginx state=latest update_cache=true
+  register: nginxinstalled
+  notify:
+      - start nginx
+
+- name: nginx instalation failed
+  when: nginxinstalled|failed
+  fail: msg="nginx instalation failed, please check logs"
+
+- name: push nginx.conf template
+  when: nginxinstalled|success
+  template: src=roles/nginx/templates/nginx.conf.j2 dest=/etc/nginx/nginx.conf mode=0640
+
+- name: push site configuration template
+  when: nginxinstalled|success
+  template: src=roles/nginx/templates/virtualhost.j2 dest=/etc/nginx/sites-available/{{ domain }} mode=0640
+
+- name: check nginx config
+  when: nginxinstalled|success
+  command: /usr/sbin/nginx -t
+  register: nginxconfig 
+
+- name: nginx config error
+  when: nginxconfig|failed
+  fail: msg="nginx config error, check your config..."
+
+- name: disable default virtualhost
+  when: nginxconfig|success
+  file: dest=/etc/nginx/sites-enabled/default state=absent
+
+- name: enable site
+  when: nginxconfig|success
+  file: src=/etc/nginx/sites-available/{{ domain }} dest=/etc/nginx/sites-enabled/{{ domain }} state=link
+
+- name: create document root
+  when: nginxinstalled|success
+  file: dest=/home/{{ username }}/Projects/{{ domain }}/public mode=775 state=directory owner=www-data group=www-data
+  notify:
+    - reload nginx
+
+- name: document root permissions
+  when: nginxinstalled|success
+  file: dest=/home/{{ username }}/Projects/{{ domain }}/public mode=775 state=directory owner=www-data group=www-data recurse=yes
+  notify:
+    - reload nginx
+
+     

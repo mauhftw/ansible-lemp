@@ -1,0 +1,21 @@
+---
+
+- name: install MySQL packages
+  apt: pkg={{ item }} state=installed update_cache=yes
+  with_items: "{{ mysql_packages }}"
+
+- name: update MySQL root password for all root accounts 
+  mysql_user: name=root host={{ item }} password={{ mysql_root_pass }} state=present
+  with_items:
+    - "{{ ansible_hostname }}"
+    - 127.0.0.1
+    - ::1
+    - localhost
+
+- name: copy the templates to their respestive destination
+  template: src={{ item.src }} dest={{ item.dest }} owner=root group=root mode={{ item.mode | default(644) }}
+  with_items:
+    - { src: 'my.cnf.j2', dest: '/etc/mysql/my.cnf' }
+    - { src: 'root.cnf.j2', dest: '~/.my.cnf', mode: '600' }
+  notify:
+    - restart MySQL

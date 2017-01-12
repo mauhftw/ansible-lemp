@@ -1,0 +1,4 @@
+---
+domain: manchego.app
+username: ubuntu
+nginx_worker_processes: "{{ ansible_processor_cores }}"

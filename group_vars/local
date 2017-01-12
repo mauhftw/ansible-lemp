@@ -1,0 +1,41 @@
+---
+
+#nginx
+nginx_worker_processes: 4
+domain: pasajeschile.app
+username: ubuntu
+
+#php
+php_repo: "ppa:ondrej/php"
+php_packages:
+  - php7.0-common
+  - php7.0-cli
+  - php7.0-intl
+  - php7.0-curl
+  - php7.0-cgi
+  - php7.0-fpm
+  - php7.0-mysql
+  - php7.0-gd
+  - php7.0-mbstring
+  - php7.0-mcrypt
+  - php7.0-memcached
+  - php7.0-apcu
+  - php7.0-xml
+
+#composer
+composer_web: https://getcomposer.org/installer
+
+#mysql
+mysql_port: 3306
+mysql_bind_address: "127.0.0.1"
+mysql_root_pass: root
+mysql_packages:
+  - mysql-server
+  - mysql-client
+  - python-mysqldb
+  - libmysqlclient-dev
+
+#phpmyadmin
+phpmyadmin_repo: https://github.com/phpmyadmin/phpmyadmin.git
+phpmyadmin_domain_name: phpmyadmin.app
+

@@ -1,0 +1,17 @@
+---
+- name: download phpmyadmin
+  git: repo={{ phpmyadmin_repo }} depth=1 version=STABLE dest=/home/{{ username }}/Projects/phpmyadmin
+  register: phpmyadminDownloaded
+
+- name: add phpmyadmin virtualhost
+  when: phpmyadminDownloaded|success
+  template: src=roles/phpmyadmin/templates/phpmyadmin.j2 dest=/etc/nginx/sites-available/phpmyadmin mode=0640
+
+- name: enable phpmyadmin
+  when: phpmyadminDownloaded|success
+  file: src=/etc/nginx/sites-available/phpmyadmin dest=/etc/nginx/sites-enabled/phpmyadmin state=link
+  notify:
+    - reload nginx
+
+
+

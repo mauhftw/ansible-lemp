@@ -1,0 +1,2 @@
+[local]
+host1.villa.com ansible_host=10.0.3.252 ansible_user=ubuntu

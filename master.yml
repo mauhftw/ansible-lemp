@@ -1,0 +1,11 @@
+---
+ - hosts: testing
+   become: yes
+   user: ubuntu
+   roles:
+    - common
+    - nginx
+    - mysql
+    - php
+    - composer
+    - phpmyadmin

@@ -1,0 +1,92 @@
+#main context
+
+user  www-data;
+worker_processes {{ nginx_worker_processes }};
+pid        /var/run/nginx.pid;
+
+
+events {
+   	 worker_connections  1024;
+}
+
+
+http {
+
+	##
+	# Logs
+	##
+
+    	error_log  /var/log/nginx/error.log warn;
+    	access_log  /var/log/nginx/access.log;
+
+	##
+	# Basic Settings
+	##
+
+	#buffers
+	
+	client_body_buffer_size 16K;
+	client_header_buffer_size 1k;
+	client_max_body_size 8m;
+	large_client_header_buffers 2 2k;
+	
+	#timeouts
+
+	client_body_timeout 12;
+	client_header_timeout 12;
+	keepalive_timeout 15;
+	send_timeout 10;
+	keepalive_requests 10000;
+
+	#file cache filedescriptor
+
+	open_file_cache max=5000 inactive=20s;
+	open_file_cache_valid 30s;
+	open_file_cache_min_uses 2;
+	open_file_cache_errors on;
+
+	#tcp
+	sendfile on;
+	sendfile_max_chunk 512k;
+	tcp_nopush on;
+	tcp_nodelay on;
+
+	#misc
+
+	types_hash_max_size 2048;
+	include /etc/nginx/mime.types;
+	default_type application/octet-stream;	
+	# server_tokens off;
+	# server_names_hash_bucket_size 64;
+	# server_name_in_redirect off;
+
+	##
+	# Gzip Settings
+	##
+
+	gzip on;
+	gzip_disable "msie6";
+	gzip_static on;
+
+	gzip_vary on;
+	gzip_comp_level 3;
+	gzip_buffers 32 4k;
+	gzip_min_length 1100;
+	gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+	##
+	# SSL Settings
+	##
+
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # Dropping SSLv3, ref: POODLE
+	ssl_prefer_server_ciphers on;
+
+	##
+	# Virtual Host Configs
+	##
+
+	include /etc/nginx/conf.d/*.conf;
+	include /etc/nginx/sites-enabled/*;
+
+}
+

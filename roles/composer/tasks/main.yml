@@ -1,0 +1,8 @@
+---
+- name: install composer
+  get_url: url={{ composer_web }} dest=/tmp/composer-setup.php
+
+- name: install composer globally
+  command: php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+

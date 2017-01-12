@@ -1,0 +1,16 @@
+---
+
+- name: add PPA repository
+  apt_repository: repo={{ php_repo }}
+
+- name: apt-get update 
+  apt: update_cache=yes
+
+- name: install php packages
+  apt: pkg={{ item }} state=latest
+  with_items: "{{ php_packages }}"
+  register: phpinstalled
+  notify:
+    - start php7-fpm
+    - reload nginx
+
