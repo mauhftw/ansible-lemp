@@ -13,8 +13,9 @@ Ansible playbook for personal use. Installs full LEMP stack for testing/developi
 
 ### Install ansible & dependencies
 
-1. `Chmod +x setup_ansible.sh`
-2. `sudo ./setup_ansible.sh`
+1. `git clone https://github.com/mauhftw/ansible-lemp`
+2. `Chmod +x setup_ansible.sh`
+3. `sudo ./setup_ansible.sh`
 
 ## Roles
 
