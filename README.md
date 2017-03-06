@@ -45,17 +45,17 @@ Before you run the ansible role, please configure your group_vars. In the next p
 
 
 ### SSH
-ssh_users:	Users allowed to ssh your current system (AllowUsers)
+- ssh_users:	  Users allowed to ssh your current system (AllowUsers)
   
 ### Fail2ban
-fail2ban_default_bantime: Default Fail2ban's Bantime
-fail2ban_default_findtime: Default Fail2ban's findtime
-fail2ban_default_destemail: Email address for notifications
-fail2ban_default_sendername: Email name for notifications
-fail2ban_default_maxretries: Max number of retries
-fail2ban_ssh_port: Default SSH port
-fail2ban_default_ssh_path: SSH's log path
-fail2ban_mta: Default MTA
+- fail2ban_default_bantime:     Default Fail2ban's Bantime
+- fail2ban_default_findtime:    Default Fail2ban's findtime
+- fail2ban_default_destemail:   Email address for notifications
+- fail2ban_default_sendername:  Email name for notifications
+- fail2ban_default_maxretries:  Max number of retries
+- fail2ban_ssh_port:            Default SSH port
+- fail2ban_default_ssh_path:    SSH's log path
+- fail2ban_mta:                 Default MTA
 
 ### Sendmail
 sendmail_user: account's username for sendmail
