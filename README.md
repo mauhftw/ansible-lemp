@@ -41,11 +41,11 @@ Ansible-drupal contains the following roles:
 
 Before you run the ansible role, please configure your group_vars. In the next paragraph basic notes about vars will be given.
 
-`TIP: Use default local.yml values for references`
+- `TIP`: Use default local.yml values for references`
 
 
 ### SSH
-- ssh_users:	  Users allowed to ssh your current system (AllowUsers)
+- `ssh_users:`	  Users allowed to ssh your current system (AllowUsers)
   
 ### Fail2ban
 - fail2ban_default_bantime:     Default Fail2ban's Bantime
