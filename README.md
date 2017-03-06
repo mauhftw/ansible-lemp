@@ -23,19 +23,19 @@ The following commands will install ansible (via pip) in your system.
 
 Ansible-drupal contains the following roles:
 
-- common	Installs basic tools & dependencies
-- ufw		Installs ufw and basic rules (HTTP/s, SSH)
-- ssh		Configures SSH
-- no_spoofing	Prevents IP spoofing
-- fail2ban 	Installs and configures fail2ban (SSH)
-- sendmail	Setups MTA sendmail (sendonly emails)
-- letsencrypt	Install letsencrypt certificates
-- nginx		Install nginx-full & nginx-extras + secure drupal configs
-- mysql		Install mysql
-- php		Install php7.0
-- drupal	Install drupal
-- civicrm	Install civiCRM module
-- backup	Install schedules configurable backups cronjobs to AWS S3
+- `common`	Installs basic tools & dependencies
+- `ufw`		Installs ufw and basic rules (HTTP/s, SSH)
+- `ssh`		Configures SSH
+- `no_spoofing`	Prevents IP spoofing
+- `fail2ban` 	Installs and configures fail2ban (SSH)
+- `sendmail`	Setups MTA sendmail (sendonly emails)
+- `letsencrypt`	Install letsencrypt certificates
+- `nginx`		Install nginx-full & nginx-extras + secure drupal configs
+- `mysql`		Install mysql
+- `php`		Install php7.0
+- `drupal`	Install drupal
+- `civicrm`	Install civiCRM module
+- `backup`	Install schedules configurable backups cronjobs to AWS S3
 
 ## Ansible Vars
 
