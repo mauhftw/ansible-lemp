@@ -116,7 +116,6 @@ Before you run the ansible role, please configure your group_vars. In the next p
 ### Cronjob parameters
 
 - `cronjob_name:` Cronjob's backup name
-
 - `cronjob_schedule_minute:` 
 - `cronjob_schedule_hour:` 
 - `cronjob_schedule_day:` 
@@ -126,14 +125,14 @@ Before you run the ansible role, please configure your group_vars. In the next p
 This parameters works like a conventional unix-like cronjob.
 
 
-Field	| Required | Allowed values |	Allowed special characters |	Remarks |
-------|----------| ---------------|----------------------------|----------|
-Minutes |	Yes |	0-59	* , -	- | |
+Field	| Required | Allowed values |	Allowed special characters |
+------|----------| ---------------|----------------------------|
+Minutes |	Yes |	0-59	* , -	- | 
 Hours |	Yes | 	0-23	* , -	- | |
-Day of month |	Yes |	1-31	* , - ? L W |	- |
-Month |	Yes |	1-12 or JAN-DEC	* , - |	- |
-Day of week |	Yes |	0-6 or SUN-SAT	* , - ? L # |	- |
-Year |	No | 	1970–2099	* , - |	This field is not supported in standard/default implementations. |
+Day of month |	Yes |	1-31	* , - ? L W |	- 
+Month |	Yes |	1-12 or JAN-DEC	* , - |	- 
+Day of week |	Yes |	0-6 or SUN-SAT	* , - ? L # |	- 
+Year |	No | 	1970–2099	* , - 
 
 
 For more information, please visit: https://en.wikipedia.org/wiki/Cron
