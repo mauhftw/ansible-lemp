@@ -41,7 +41,7 @@ Ansible-drupal contains the following roles:
 
 Before you run the ansible role, please configure your group_vars. In the next paragraph basic notes about vars will be given.
 
-- `TIP`: Use default local.yml values for references`
+- `TIP`: Use default local.yml values for references
 
 
 ### SSH
@@ -58,61 +58,60 @@ Before you run the ansible role, please configure your group_vars. In the next p
 - `fail2ban_mta:`                 Default MTA
 
 ### Sendmail
-- `sendmail_user:` account's username for sendmail
+- `sendmail_user:` Account's username for sendmail
 
 ### Letsencrypt
-- `webroot_dir:` webroot directory name (e.g project)
-- `letsencrypt_command:` letsencrypt command
-- `letsencrypt_webroot_path:` webroot path (e.g /var/www/project)
+- `webroot_dir:` Webroot directory name (e.g project)
+- `letsencrypt_webroot_path:` Webroot path (e.g /var/www/project)
 - `letsencrypt_email:` mail@yourdomain.app
 
 ### Nginx
-- `nginx_worker_processes:` "{{ ansible_processor_cores }}"
-- `domain:` domain name (e.g yourdomain.app)
+- `nginx_worker_processes:` Number of worker processes
+- `domain:` Domain name (e.g yourdomain.app)
 - `domain_www:` www domain name (e.g www.yourdomain.app)
-- `resolver:` default resolver's ip
+- `resolver:` Default resolver's ip
 
 ### Mysql
-- `mysql_port:` mysql's port
-- `mysql_bind_address:` mysql's listening address
-- `mysql_password:` mysql's password. Edit this entry in vault_file.txt 
-- `mysql_packages:` mysql's packages to install
+- `mysql_port:` Mysql's port
+- `mysql_bind_address:` Mysql's bind address
+- `mysql_password:` Mysql's password. Edit this entry in vault_file.txt 
+- `mysql_packages:` Mysql's packages to install
 
 ### Php
-- `php_repo:` php's repo
-- `php_packages:` php's packages to install
+- `php_repo:` PHP's repo
+- `php_packages:` PHP's packages to install
 
 
 ### Drupal
-- `drupal_db:` drupal database
-- `drupal_user:` drupal database user
-- `drupal_password:` "drupal database password. Edit this entry in vault_file.txt
-- `drupal_docroot:` webroot path withour project's directory (eg. /var/www)
-- `drupal_version:` drupal version to install (e.g drupal-7.54)
-- `drupal_dir:` webroot directory name (e.g project)
-- `drupal_absolute_docroot:` webroot path (e.g /var/www/project)
-- `site_mail:` drupal's email for notification purposes
-- `site_name:` drupal's site name. 
-- `account_mail:` drupal's main account
-- `user:` admin username 
-- `password:` admin password. Edit this entry in vault_file.txt 
+- `drupal_db:` Drupal database
+- `drupal_user:` Drupal database user
+- `drupal_password:` Drupal database password. Edit this entry in vault_file.txt
+- `drupal_docroot:` Webroot path withour project's directory (eg. /var/www)
+- `drupal_version:` Drupal version to install (e.g drupal-7.54)
+- `drupal_dir:` Webroot directory name (e.g project)
+- `drupal_absolute_docroot:` Webroot path (e.g /var/www/project)
+- `site_mail:` Drupal's email for notification purposes
+- `site_name:` Drupal's site name. 
+- `account_mail:` Drupal's main account
+- `user:` Admin username 
+- `password:` Admin password. Edit this entry in vault_file.txt 
 
 ### CiviCRM
-- `rootdir:` webroot directory name (e.g project)
-- `civicrm_db:` civicrm database
-- `civicrm_user:` civicrm database user
-- `civicrm_password:` civicrm database password.Edit this entry in vault_file.txt 
-- `civicrm_url:` civicrm download page
-- `civicrm_destination:` civicrm temporal directory for configuration purpose
+- `rootdir:` Webroot directory name (e.g project)
+- `civicrm_db:` Civicrm database
+- `civicrm_user:` Civicrm database user
+- `civicrm_password:` Civicrm database password.Edit this entry in vault_file.txt 
+- `civicrm_url:` Civicrm download page
+- `civicrm_destination:` Civicrm temporal directory for configuration purpose
 
 ### Backup  -- Backups files to AWS S3 --
-- `aws_access_key:` your AWS's access key
-- `aws_access_secret:` your AWS's access secret key
+- `aws_access_key:` Your AWS's access key
+- `aws_access_secret:` Your AWS's access secret key
 - `region:` AWS's region
 - `s3_bucket:` S3's bucket name
 - `s3_prefix:` S3's bucket prefix name
-- `backup_name:` backup name
-- `backup_tmp_dest:` backup temporal destination (e.g /tmp/dump)
+- `backup_name:` Backup name
+- `backup_tmp_dest:` Backup temporal destination (e.g /tmp/dump)
 
 ### Cronjob parameters
 
@@ -127,13 +126,14 @@ Before you run the ansible role, please configure your group_vars. In the next p
 This parameters works like a conventional unix-like cronjob.
 
 
-Field	Required	Allowed values	Allowed special characters	Remarks
-Minutes	Yes	0-59	* , -	-
-Hours	Yes	0-23	* , -	-
-Day of month	Yes	1-31	* , - ? L W	-
-Month	Yes	1-12 or JAN-DEC	* , -	-
-Day of week	Yes	0-6 or SUN-SAT	* , - ? L #	-
-Year	No	1970–2099	* , -	This field is not supported in standard/default implementations.
+Field	| Required |Allowed values |	Allowed special characters |	Remarks |
+---------------------------------------------------------------------------
+Minutes |	Yes |	0-59	* , -	- | |
+Hours |	Yes | 	0-23	* , -	- | |
+Day of month |	Yes |	1-31	* , - ? L W |	- |
+Month |	Yes |	1-12 or JAN-DEC	* , - |	- |
+Day of week |	Yes |	0-6 or SUN-SAT	* , - ? L # |	- |
+Year |	No | 	1970–2099	* , - |	This field is not supported in standard/default implementations. |
 
 
 
