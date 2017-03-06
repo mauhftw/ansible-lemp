@@ -104,7 +104,7 @@ Before you run the ansible role, please configure your group_vars. In the next p
 - `civicrm_url:` Civicrm download page
 - `civicrm_destination:` Civicrm temporal directory for configuration purpose
 
-### Backup  -- Backups files to AWS S3 --
+### Backup     [Backup to AWS S3]
 - `aws_access_key:` Your AWS's access key
 - `aws_access_secret:` Your AWS's access secret key
 - `region:` AWS's region
@@ -127,8 +127,8 @@ This parameters works like a conventional unix-like cronjob.
 
 Field	| Required | Allowed values |	Allowed special characters |
 ------|----------| ---------------|----------------------------|
-Minutes |	Yes |	0-59	* , -	- | 
-Hours |	Yes | 	0-23	* , -	- | |
+Minutes |	Yes |	0-59	* , - | - 
+Hours |	Yes | 	0-23	* , -	 | - 
 Day of month |	Yes |	1-31	* , - ? L W |	- 
 Month |	Yes |	1-12 or JAN-DEC	* , - |	- 
 Day of week |	Yes |	0-6 or SUN-SAT	* , - ? L # |	- 
