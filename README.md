@@ -126,8 +126,8 @@ Before you run the ansible role, please configure your group_vars. In the next p
 This parameters works like a conventional unix-like cronjob.
 
 
-Field	| Required |Allowed values |	Allowed special characters |	Remarks |
----------------------------------------------------------------------------
+Field	| Required | Allowed values |	Allowed special characters |	Remarks |
+------|----------| ---------------|----------------------------|----------|
 Minutes |	Yes |	0-59	* , -	- | |
 Hours |	Yes | 	0-23	* , -	- | |
 Day of month |	Yes |	1-31	* , - ? L W |	- |
@@ -135,17 +135,6 @@ Month |	Yes |	1-12 or JAN-DEC	* , - |	- |
 Day of week |	Yes |	0-6 or SUN-SAT	* , - ? L # |	- |
 Year |	No | 	1970–2099	* , - |	This field is not supported in standard/default implementations. |
 
-
-
- ┌───────────── minute (0 - 59)
- │ ┌───────────── hour (0 - 23)
- │ │ ┌───────────── day of month (1 - 31)
- │ │ │ ┌───────────── month (1 - 12)
- │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday to Saturday;
- │ │ │ │ │                                       7 is also Sunday)
- │ │ │ │ │
- │ │ │ │ │
- * * * * *  command to execute
 
 For more information, please visit: https://en.wikipedia.org/wiki/Cron
 
